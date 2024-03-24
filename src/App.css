@@ -1,0 +1,17 @@
+.container {
+    height: 100%;
+}
+.bottom {
+    position: fixed;
+    color: rgb(3, 105, 161);
+    background-color: rgb(186, 230, 253);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+    bottom: 5px;
+    margin: auto;
+    width: 215px;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
+}
