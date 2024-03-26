@@ -1,56 +1,63 @@
-const { _saveQuestion, _saveQuestionAnswer } = require("./_DATA");
-describe("_saveQuestionAnswer", () => {
-  it("should return true for correct parameters", async () => {
-    const response = await _saveQuestionAnswer({
-      authedUser: "sarahedo",
-      qid: "8xf0y6ziyjabvozdd253nd",
-      answer: "optionOne",
-    });
+import { _saveQuestion, _saveQuestionAnswer } from "./_DATA";
 
-    expect(response).toBeTruthy();
-  });
-
-  it("should return error for false parameters", async () => {
-    const response = await _saveQuestionAnswer({
-      authedUser: "sarahedo",
-      qid: undefined,
-      answer: "optionOne",
-    }).catch((e) => e);
-
-    expect(response).toBe("Please provide authedUser, qid, and answer");
-  });
-});
-
-describe("_saveQuestion", () => {
-  test("returns the saved question with all expected fields populated when correctly formatted data is passed to the function", async () => {
-    const mockQuestion = {
-      author: "name of author",
-      optionOneText: "option one",
-      optionTwoText: "option two",
+describe("When I attempt to save a new question", () => {
+  it("should return expected result given proper data", async () => {
+    // arrange
+    const poll = {
+      optionOneText: "test option one",
+      optionTwoText: "test option two",
+      author: "sarahedo",
     };
 
-    const actual = await _saveQuestion(mockQuestion);
-    const { author, optionOne, optionTwo } = actual;
-    const text1 = optionOne.text;
-    const text2 = optionTwo.text;
-
-    expect(author).toBe("name of author");
-    expect(text1).toBe("option one");
-    expect(text2).toBe("option two");
+    // assert
+    const result = await _saveQuestion(poll);
+    expect(result).toHaveProperty("id");
+    expect(result).toHaveProperty("author");
+    expect(result).toHaveProperty("optionOne");
+    expect(result).toHaveProperty("optionTwo");
+    expect(result).toHaveProperty("timestamp");
   });
-});
 
-describe("_saveQuestion", () => {
-  it("returns an error when incorrect data is passed to the function", async () => {
-    const mockQuestion = {
-      author: null,
-      optionOneText: null,
-      optionTwoText: null,
+  it("should return error given improper data", async () => {
+    // arrange
+    const malformedPoll = {
+      optionOneText: "test option one",
+      optionTwoText: "test option two",
     };
 
-    await expect(_saveQuestion(mockQuestion)).rejects.toEqual(
+    // assert
+    await expect(_saveQuestion(malformedPoll)).rejects.toEqual(
       "Please provide optionOneText, optionTwoText, and author"
     );
   });
 });
 
+describe("When I attempt to answer a poll", () => {
+  it("should return true given proper data", async () => {
+    // arrange
+    const pollAnswer = {
+      authedUser: "sarahedo",
+      qid: "8xf0y6ziyjabvozdd253nd",
+      answer: "optionOne",
+    };
+
+    // action
+    const result = await _saveQuestionAnswer(pollAnswer);
+
+    // assert
+    expect(result).toEqual(true);
+  });
+
+  it("should return error given improper data", async () => {
+    // arrange
+    const malformedPollAnswer = {
+      authedUser: "test option one",
+      qid: "test option two",
+    };
+
+    // assert
+    await expect(_saveQuestionAnswer(malformedPollAnswer)).rejects.toEqual(
+      "Please provide authedUser, qid, and answer"
+    );
+  });
+});

@@ -9,6 +9,10 @@ const PollPage = ({ dispatch, authedUser, question, author }) => {
     return <Navigate to="/404" />;
   }
 
+  const handleBack = () => {
+    navigate("/");
+  };
+
   const hasVotedForOptionOne = question.optionOne.votes.includes(authedUser.id);
   const hasVotedForOptionTwo = question.optionTwo.votes.includes(authedUser.id);
   const hasVoted = hasVotedForOptionOne || hasVotedForOptionTwo;
@@ -16,13 +20,13 @@ const PollPage = ({ dispatch, authedUser, question, author }) => {
   const handleOptionOne = (e) => {
     e.preventDefault();
     dispatch(handleAddAnswer(question.id, "optionOne"));
-    navigate("/");
+    // navigate("questions/"+ question.id);
   };
 
   const handleOptionTwo = (e) => {
     e.preventDefault();
     dispatch(handleAddAnswer(question.id, "optionTwo"));
-    navigate("/");
+    // navigate("questions/"+ question.id);
   };
 
   const calcPercentage = (option, question) => {
@@ -96,8 +100,16 @@ const PollPage = ({ dispatch, authedUser, question, author }) => {
             </p>
           )}
         </button>
+        
       </div>
+      <div className="flex justify-center">
+      <button onClick={handleBack} className="flex justify-center">
+        Go Back to Home
+      </button>
+      </div>
+
     </div>
+    
   );
 };
 
