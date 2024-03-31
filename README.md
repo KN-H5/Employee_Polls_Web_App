@@ -13,7 +13,7 @@ In this app, users are able to create and participate in polls, see which poll q
 ## To run it locally:
 
 - install all project dependencies with `npm install`
-- create Tailwind CSS file with `npm run tailwind`
+- test `npm test`
 - start the app with with `npm start`
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
