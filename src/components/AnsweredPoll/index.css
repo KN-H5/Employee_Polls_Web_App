@@ -1,0 +1,13 @@
+.answered-poll {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.btn-back {
+  margin-top: 50px;
+}
+.chosen{
+  background-color: aqua;
+}

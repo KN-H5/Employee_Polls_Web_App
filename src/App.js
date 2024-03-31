@@ -1,69 +1,41 @@
-import React, { useEffect } from "react";
 import "./App.css";
-import Nav from "./components/NavBar/NavBar";
-import { Route, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard/Dashboard";
-import NewPoll from "./components/NewPoll/NewPoll";
-import PollPage from "./components/PollPage/PollPage";
-import { connect } from "react-redux";
-import Login from "./components/Login/Login";
-import { handleInitialData } from "./actions/shared";
-import Leaderboard from "./components/Leaderboard/Leaderboard";
-import Error404 from "./components/404";
-import PrivateRoute from "./components/PrivateRoute";
+import { useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-function App({ dispatch, loggedIn }) {
+import Login from "pages/Login/Login";
+import { useDispatch } from "react-redux";
+import { fetchPolls } from "stores/reducers/polls";
+import { fetchUsers } from "stores/reducers/users";
+import AppRoutes from "components/AppRoutes/AppRoutes";
+import Dashboard from "pages/Dashboard/Dashboard";
+import NotFound from "pages/NotFound/NotFound";
+import PollDetail from "pages/PollDetail/PollDetail";
+import Leaderboard from "pages/Leaderboard/Leaderboard";
+import CreatePoll from "pages/CreatePoll/CreatePoll";
+
+const App = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(handleInitialData());
-  });
+    dispatch(fetchPolls());
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   return (
-    <div className="container mx-auto py-4">
-      {loggedIn && <Nav />}
+    <div className="container">
       <Routes>
-        <Route path="/login" exact element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/leaderboard"
-          exact
-          element={
-            <PrivateRoute>
-              <Leaderboard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/questions/:id"
-          element={
-            <PrivateRoute>
-              <PollPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/new"
-          exact
-          element={
-            <PrivateRoute>
-              <NewPoll />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/404" exact element={<Error404 />} />
+        <Route path="/login" element={<Login />} />
+        <Route element={<AppRoutes />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/question/:id" element={<PollDetail />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/new-poll" element={<CreatePoll />} />
+        </Route>
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/not-found" />} />
       </Routes>
     </div>
   );
-}
+};
 
-const mapStateToProps = ({ authedUser }) => ({
-  loggedIn: !!authedUser,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

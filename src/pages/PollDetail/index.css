@@ -1,5 +1,5 @@
-.container {
-  width: 1200px;
+.poll-detail {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }

@@ -1,165 +1,305 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render the component 1`] = `
+exports[`App will match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="container mx-auto py-4"
+        class="container"
       >
         <div
-          class="login"
+          class="nav-bar"
         >
           <div
-            class="login-card"
+            class="nav-bar-left"
           >
-            <h1
-              class="text-3xl font-bold mt-9"
-              data-testid="login-heading"
+            <div
+              class="nav-bar-item nav-bar-item-active"
+              data-testid="home"
             >
-              Login
-            </h1>
-            <form>
-              <div>
-                <label
-                  class="block text-sm font-medium text-sky-700"
-                  for="username"
-                >
-                  Username
-                </label>
-                <div
-                  class="mt-1"
-                >
-                  <input
-                    class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                    data-testid="username"
-                    id="username"
-                    name="username"
-                    type="text"
-                    value="sarahedo"
-                  />
-                </div>
-              </div>
-              <div
-                class="mt-6"
-              >
-                <label
-                  class="block text-sm font-medium text-sky-700"
-                  for="password"
-                >
-                  Password
-                </label>
-                <div
-                  class="mt-1"
-                >
-                  <input
-                    class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                    data-testid="password"
-                    id="password"
-                    name="password"
-                    type="password"
-                    value="password123"
-                  />
-                </div>
-              </div>
-              <div
-                class="mt-6 text-right"
-              >
-                <button
-                  class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
-                  data-testid="submit"
-                  type="submit"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
+              Home
+            </div>
+            <div
+              class="nav-bar-item "
+              data-testid="leaderboard"
+            >
+              Leaderboard
+            </div>
+            <div
+              class="nav-bar-item "
+              data-testid="newPoll"
+            >
+              New
+            </div>
+          </div>
+          <div
+            class="nav-bar-item-center"
+          />
+          <div
+            class="nav-bar-right"
+          >
+            <div
+              class="nav-bar-item nav-bar-item-user"
+            >
+              sarahedo
+            </div>
+            <div
+              class="nav-bar-item "
+              data-testid="logout"
+            >
+              Logout
+            </div>
+          </div>
+        </div>
+        <h1>
+          Welcome 
+          sarahedo
+        </h1>
+        <div
+          class="nav-bar-left "
+        >
+          <div
+            class="nav-bar-item nav-bar-item-active"
+            data-testid="unansweredTab"
+          >
+            New Questions
+          </div>
+          <div
+            class="nav-bar-item false"
+            data-testid="answeredTab"
+          >
+            Done
           </div>
         </div>
         <div
-          class="bottom"
+          class="group-poll"
         >
+          <div
+            class="group-poll-left"
+          />
+          <div
+            class="group-poll-center"
+          >
+            <div
+              class="group-poll-label"
+            >
+              New Questions
+            </div>
+            <div
+              class="polls"
+            >
+              <div
+                class="poll"
+              >
+                <div
+                  class="poll-item-top"
+                >
+                  <div
+                    class="poll-item-top-user"
+                  >
+                    tylermcginnis
+                  </div>
+                  <div
+                    class="poll-item-top-date"
+                  >
+                    2:12 AM | 9/17/2023
+                  </div>
+                </div>
+                <div
+                  class="poll-item-bottom"
+                >
+                  <a
+                    class="poll-btn"
+                    href="/question/vthrdm985a262al8qx3do"
+                  >
+                    Show
+                  </a>
+                </div>
+              </div>
+              <div
+                class="poll"
+              >
+                <div
+                  class="poll-item-top"
+                >
+                  <div
+                    class="poll-item-top-user"
+                  >
+                    mtsamis
+                  </div>
+                  <div
+                    class="poll-item-top-date"
+                  >
+                    11:32 PM | 9/15/2023
+                  </div>
+                </div>
+                <div
+                  class="poll-item-bottom"
+                >
+                  <a
+                    class="poll-btn"
+                    href="/question/xj352vofupe1dqz9emx13r"
+                  >
+                    Show
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group-poll-right"
+          />
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="container mx-auto py-4"
+      class="container"
     >
       <div
-        class="login"
+        class="nav-bar"
       >
         <div
-          class="login-card"
+          class="nav-bar-left"
         >
-          <h1
-            class="text-3xl font-bold mt-9"
-            data-testid="login-heading"
+          <div
+            class="nav-bar-item nav-bar-item-active"
+            data-testid="home"
           >
-            Login
-          </h1>
-          <form>
-            <div>
-              <label
-                class="block text-sm font-medium text-sky-700"
-                for="username"
-              >
-                Username
-              </label>
-              <div
-                class="mt-1"
-              >
-                <input
-                  class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                  data-testid="username"
-                  id="username"
-                  name="username"
-                  type="text"
-                  value="sarahedo"
-                />
-              </div>
-            </div>
-            <div
-              class="mt-6"
-            >
-              <label
-                class="block text-sm font-medium text-sky-700"
-                for="password"
-              >
-                Password
-              </label>
-              <div
-                class="mt-1"
-              >
-                <input
-                  class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                  data-testid="password"
-                  id="password"
-                  name="password"
-                  type="password"
-                  value="password123"
-                />
-              </div>
-            </div>
-            <div
-              class="mt-6 text-right"
-            >
-              <button
-                class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
-                data-testid="submit"
-                type="submit"
-              >
-                Login
-              </button>
-            </div>
-          </form>
+            Home
+          </div>
+          <div
+            class="nav-bar-item "
+            data-testid="leaderboard"
+          >
+            Leaderboard
+          </div>
+          <div
+            class="nav-bar-item "
+            data-testid="newPoll"
+          >
+            New
+          </div>
+        </div>
+        <div
+          class="nav-bar-item-center"
+        />
+        <div
+          class="nav-bar-right"
+        >
+          <div
+            class="nav-bar-item nav-bar-item-user"
+          >
+            sarahedo
+          </div>
+          <div
+            class="nav-bar-item "
+            data-testid="logout"
+          >
+            Logout
+          </div>
+        </div>
+      </div>
+      <h1>
+        Welcome 
+        sarahedo
+      </h1>
+      <div
+        class="nav-bar-left "
+      >
+        <div
+          class="nav-bar-item nav-bar-item-active"
+          data-testid="unansweredTab"
+        >
+          New Questions
+        </div>
+        <div
+          class="nav-bar-item false"
+          data-testid="answeredTab"
+        >
+          Done
         </div>
       </div>
       <div
-        class="bottom"
+        class="group-poll"
       >
+        <div
+          class="group-poll-left"
+        />
+        <div
+          class="group-poll-center"
+        >
+          <div
+            class="group-poll-label"
+          >
+            New Questions
+          </div>
+          <div
+            class="polls"
+          >
+            <div
+              class="poll"
+            >
+              <div
+                class="poll-item-top"
+              >
+                <div
+                  class="poll-item-top-user"
+                >
+                  tylermcginnis
+                </div>
+                <div
+                  class="poll-item-top-date"
+                >
+                  2:12 AM | 9/17/2023
+                </div>
+              </div>
+              <div
+                class="poll-item-bottom"
+              >
+                <a
+                  class="poll-btn"
+                  href="/question/vthrdm985a262al8qx3do"
+                >
+                  Show
+                </a>
+              </div>
+            </div>
+            <div
+              class="poll"
+            >
+              <div
+                class="poll-item-top"
+              >
+                <div
+                  class="poll-item-top-user"
+                >
+                  mtsamis
+                </div>
+                <div
+                  class="poll-item-top-date"
+                >
+                  11:32 PM | 9/15/2023
+                </div>
+              </div>
+              <div
+                class="poll-item-bottom"
+              >
+                <a
+                  class="poll-btn"
+                  href="/question/xj352vofupe1dqz9emx13r"
+                >
+                  Show
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group-poll-right"
+        />
       </div>
     </div>
   </div>,

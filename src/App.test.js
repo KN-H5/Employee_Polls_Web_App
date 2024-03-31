@@ -1,48 +1,26 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import App from "./App";
+import { render, screen } from "@testing-library/react";
+import App from "App";
 import { Provider } from "react-redux";
-import { store } from "./store";
-import { BrowserRouter } from "react-router-dom";
-import { setAuthedUser } from "./actions/authedUser";
+import { BrowserRouter as Router } from "react-router-dom";
+import mockStore from "tests/MockStore";
+import createTestStore from "tests/TestStore";
+
+let store;
+
+beforeEach(() => {
+  store = createTestStore(mockStore);
+});
 
 describe("App", () => {
-  it("should render the component", () => {
-    const component = render(
+  it("will render the application", () => {
+    render(
       <Provider store={store}>
-        <BrowserRouter>
+        <Router>
           <App />
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(component).toBeDefined();
-    expect(component).toMatchSnapshot();
-  });
-
-  it("should show Login page when not logged in", () => {
-    const component = render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
-    );
-    const heading = component.getByTestId("login-heading");
-    expect(heading).toBeInTheDocument();
-  });
-
-  it("should show Dashboard page when logged in", () => {
-    store.dispatch(setAuthedUser({ id: "", password: "" }));
-
-    const component = render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        </Router>
       </Provider>
     );
 
-    const heading = component.getByTestId("heading");
-    expect(heading).toBeInTheDocument();
+    expect(screen.getByText("Home")).toBeInTheDocument();
   });
 });
